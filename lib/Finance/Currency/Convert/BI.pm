@@ -12,8 +12,7 @@ use DateTime::Format::Indonesian;
 use LWP::Simple;
 use Parse::Number::ID qw(parse_number_id);
 
-use Exporter qw(import);
-our @EXPORT_OK = qw(get_jisdor_rates);
+use Exporter::Rinci qw(import);
 
 our %SPEC;
 

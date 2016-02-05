@@ -1,5 +1,12 @@
 Revision history for Finance-Currency-Convert-BI
 
+0.02    2016-02-05 (PERLANCAR)
+
+	- No functional changes.
+
+	- Remove use of inchworm operator [RT#111787].
+
+
 0.01    2015-10-23 (PERLANCAR)
 
         - First release.

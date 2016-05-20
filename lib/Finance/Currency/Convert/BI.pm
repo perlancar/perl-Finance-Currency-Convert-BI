@@ -29,11 +29,9 @@ _
     args => {
         from_date => {
             schema => 'date*',
-            'x.perl.coerce_to' => 'epoch',
         },
         to_date => {
             schema => 'date*',
-            'x.perl.coerce_to' => 'epoch',
         },
     },
 };

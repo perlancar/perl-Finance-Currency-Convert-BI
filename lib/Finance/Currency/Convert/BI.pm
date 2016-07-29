@@ -9,7 +9,6 @@ use warnings;
 use Log::Any::IfLOG '$log';
 
 use DateTime::Format::Indonesian;
-use LWP::Simple;
 use Parse::Number::ID qw(parse_number_id);
 
 use Exporter::Rinci qw(import);
@@ -44,8 +43,17 @@ sub get_jisdor_rates {
     if ($args{_page_content}) {
         $page = $args{_page_content};
     } else {
-        $page = get "http://www.bi.go.id/id/moneter/informasi-kurs/referensi-jisdor/Default.aspx"
-            or return [500, "Can't retrieve BI page"];
+        require Mojo::UserAgent;
+        my $ua = Mojo::UserAgent->new;
+        my $tx = $ua->get("http://www.bi.go.id/id/moneter/informasi-kurs/referensi-jisdor/Default.aspx",
+                      {'User-Agent' => 'Mozilla/4.0'});
+        my $res = $tx->success;
+        if ($res) {
+            $page = $res->body;
+        } else {
+            my $err = $tx->error;
+            return [500, "Can't retrieve BI page: $err->{code} - $err->{message}"];
+        }
     }
 
     # XXX submit form if we want to set from_date & to_date

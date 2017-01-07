@@ -1,5 +1,3 @@
-Revision history for Finance-Currency-Convert-BI
-
 0.03    2016-07-29 (PERLANCAR)
 
         - Spoof User-Agent header because server returns 502 (Bad Gateway)

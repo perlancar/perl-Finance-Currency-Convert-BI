@@ -115,7 +115,6 @@ sub get_currencies {
         }
         $page = $tx->res->body;
     }
-    log_trace "page: [[$page]]";
 
     my %currencies;
     my @recs;

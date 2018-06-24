@@ -52,7 +52,7 @@ sub get_jisdor_rates {
             $page = $res->body;
         } else {
             my $err = $tx->error;
-            return [500, "Can't retrieve BI page: $err->{code} - $err->{message}"];
+            return [500, "Can't retrieve BI page: $err->{message}"];
         }
     }
 

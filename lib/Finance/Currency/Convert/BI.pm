@@ -110,8 +110,7 @@ sub get_currencies {
         my $tx = $ua->get($url);
         unless ($tx->success) {
             my $err = $tx->error;
-            return [500, "Can't retrieve BCA page ($url): ".
-                        "$err->{code} - $err->{message}"];
+            return [500, "Can't retrieve BI page ($url): $err->{message}"];
         }
         $page = $tx->res->body;
     }
